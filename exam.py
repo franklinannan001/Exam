@@ -1,7 +1,6 @@
 # prompt for the student's name, score and attendance, and print the output
 def main():
-    name = input("What's your name: ")
-    formatted_name = format_student(name)
+    name = input("What's your name: ").title().strip()
     try:
         score = int(input("What's your score: "))
         attendance = float(input("What's your percentage attendance: "))
@@ -9,18 +8,12 @@ def main():
         if category is not None:
             remark = get_remark(category)
             print(
-                f"{formatted_name} scored {score} with {attendance:.1f}% attendance — {category}. {remark}"
+                f"{name} scored {score} with {attendance:.1f}% attendance — {category}. {remark}"
             )
         else:
             return None
     except ValueError:
         pass
-
-
-# return the student's name in title case
-def format_student(n):
-    n = n.title().strip()
-    return n
 
 
 # return the result category based on the student's score and attendance
